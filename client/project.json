@@ -66,6 +66,12 @@
       "options": {
         "lintFilePatterns": ["./src/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "options": {
+        "buildTarget": "client:build"
+      }
     }
   },
   "tags": []
