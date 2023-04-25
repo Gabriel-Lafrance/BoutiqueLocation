@@ -23,7 +23,7 @@ const Footer = () => {
 
     return (
         <div className=" bg-stone-200">
-            <Parallax bgImage={BackgroundImg2[index].background} bgClassName="object-contain top-12" strength={300}>
+            <Parallax bgImage={BackgroundImg2[index].background} bgClassName="object-contain top-12 " strength={300}>
                 <div className=" flex flex-col text-white text-center w-full h-[60vw] ">
                         <span className=" text-[4vw] font-bold sm:mt-[30%] mt-[40%] drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)] ">Pour vos location de luxe, Super-Loc</span>
                 </div>
