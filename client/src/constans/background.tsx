@@ -20,26 +20,28 @@ const BackgroundImg = [
         background : FerrariPista
     },
     {
-        background : MercC63
-    },
-    {
         background : AudiRs3
     },
     {
-        background : CorvetteC8
+        background : RRCullinan
+    },
+]
+
+export { BackgroundImg };
+
+const BackgroundImg2 = [
+    {
+        background : AmgGt
     },
     {
         background : AudiR8
     },
     {
-        background : RRCullinan
+        background : MercC63
     },
     {
         background : PorscheGt2Rs
     },
-    {
-        background : AmgGt
-    },
 ]
 
-export { BackgroundImg };
+export { BackgroundImg2 };

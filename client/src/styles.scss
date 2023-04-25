@@ -26,11 +26,11 @@
     }
 
     .BoutonMenu{
-        @apply bg-white text-zinc-800 cursor-pointer rounded-xl px-4 py-2 m-3 mt-1  drop-shadow-sm shadow-inner shadow-zinc-500 transition hover:scale-105 
+        @apply bg-white text-neutral-800 cursor-pointer rounded-xl px-4 py-2 m-3 mt-1  drop-shadow-sm shadow-inner shadow-neutral-500 transition hover:scale-105 
     }
 
     .BoutonMenuBurger{
-        @apply BoutonMenu w-64 py-2 self-center m-4
+        @apply BoutonMenu w-64 py-2 self-center m-auto
     }
 }
 
@@ -69,5 +69,5 @@
   }
 
 html {
-    @apply  font-thin scroll-smooth
+    @apply  font-serif scroll-smooth
 }

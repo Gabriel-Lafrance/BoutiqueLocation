@@ -1,16 +1,15 @@
-import Header from 'src/components/Header';
-import styles from './app.module.scss';
-import Presentation from 'src/components/Presentation';
-import Footer from 'src/components/Footer';
+import Header from 'src/components/section/Header';
+import Acceuil from 'src/components/page/Acceuil';
+import Footer from 'src/components/section/Footer';
 
 
 export function App() {
   return (
-    <div className="bg-white">
+    <>
       <Header/>
-      <Presentation/>
+      <Acceuil/>
       <Footer/>
-    </div>
+    </>
   );
 }
 

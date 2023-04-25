@@ -8,7 +8,7 @@ const Stats = [
     },
     {
         type : "Nettoyages éffectués",
-        resultat : "Nous avons effectués plus de 300 nettoyages l'an dernier !",
+        resultat : "Nous avons effectués plus de 1000 nettoyages dans la dernière année !",
         emoji : "💦"
     },
     {
