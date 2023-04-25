@@ -41,6 +41,12 @@ function Switch() {   {/* Switch On/Off pour l'ouverture/fermeture du menu Burge
     return (
     <header className="sticky top-0 z-10 text-zinc-700 text-center font-medium bg-neutral-800 h-fit w-auto flex flex-col shadow-monShadow shadow-neutral-900 drop-shadow-xl">
         <div className=" flex flex-row justify-between">
+            <a href="https://github.com/Slimy992" target="_blank" className="ml-4">
+                <div className="flex flex-row h-full items-center text-stone-200 hover:scale-105 transition  duration-500">
+                    <span className="GrosseurTitre font-semibold my-auto ">Super-Loc</span>
+                    <img src={logo} className="m-2 w-16 h-auto object-contain "/>
+                </div>
+            </a>
             <div className={largeurEcran > breakpoint ? "mt-5 ml-4" : "hidden w-0 h-0"}>
                 <div className="GrosseurTexteNormal flex flex-row justify-around align-middle items-center mr-4">
                     <Link smooth scroll={el => scrollOffset(el, 192)} to='#' className="BoutonMenu">Acceuil</Link>
@@ -57,12 +63,6 @@ function Switch() {   {/* Switch On/Off pour l'ouverture/fermeture du menu Burge
                         </div>
                     </div>
             </div>
-            <a href="https://github.com/Slimy992" target="_blank" className="">
-                <div className="flex flex-row justify-end mr-6 text-white hover:scale-105 transition  duration-500">
-                    <span className="text-3xl font-semibold mt-7 ">Super-Loc</span>
-                    <img src={logo} className="m-2 w-24 h-auto mt-5 object-contain "/>
-                </div>
-            </a>
         </div>
         <div className={estActif && largeurEcran <= breakpoint ? "animate-drop-down w-full h-screen z-10": "hidden"}>
             <div className="w-full h-screen GrosseurTitre flex flex-col justify-around align-middle">
