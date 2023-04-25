@@ -4,8 +4,9 @@
 
 
 @layer components {
-    .monGivrer{
-       @apply bg-white bg-opacity-20 backdrop-blur-md drop-shadow-lg
+
+    .GrosseurTitreXL{
+        @apply   text-3xl lg:text-4xl
     }
 
     .GrosseurTitre{
@@ -24,54 +25,13 @@
         @apply   text-sm md:text-base lg:text-lg  xl:text-xl
     }
 
-    .Grid1x6{
-        @apply grid-cols-1 grid-rows-6
-    }
-
-    .Grid3x2{
-        @apply grid-cols-3 grid-rows-2
-    }
-
-    .Grid2x3{
-        @apply grid-cols-2 grid-rows-3
-    }
-
-    .Grid3x1{
-        @apply grid-cols-3 grid-rows-1
-    }
-
-    .Grid1x3{
-        @apply grid-cols-1 grid-rows-3
-    }
-
-    .Grid1x2{
-        @apply grid-cols-1  grid-rows-2
-    }
-
-    .Grid2x1{
-        @apply grid-cols-2  grid-rows-1
-    }
-
     .BoutonMenu{
-        @apply bg-white text-zinc-800 cursor-pointer rounded-2xl w-[30%] px-4  py-1 first-letter:self-center hover:scale-105 transition m-2 BorderNoir
+        @apply bg-white text-zinc-800 cursor-pointer rounded-xl px-4 py-2 m-3 mt-1  drop-shadow-sm shadow-inner shadow-zinc-500 transition hover:scale-105 
     }
 
     .BoutonMenuBurger{
         @apply BoutonMenu w-64 py-2 self-center m-4
     }
-    
-    .BorderBlanc{
-        @apply  border-4  border-white
-    }
-
-    .BorderNoir{
-        @apply  border-4  border-zinc-800
-    }
-
-    .ProposTexte{
-        @apply text-left my-2 GrosseurTexteNormal leading-7 mx-6
-    }
-
 }
 
 ::-webkit-scrollbar {
@@ -109,5 +69,5 @@
   }
 
 html {
-    @apply font-mono scroll-smooth
+    @apply  font-thin scroll-smooth
 }

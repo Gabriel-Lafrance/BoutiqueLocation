@@ -23,13 +23,19 @@ module.exports = {
         }
       },
       screens: {
+        'xxs': { 'raw': '(min-width: 480px)' },
         'xs': { 'raw': '(min-width: 535px)' },
         'lgplus': { 'raw': '(min-width: 1148px)' },
+        'mdplus': { 'raw': '(min-width: 824px)' },
+        'smplus': { 'raw': '(min-width: 712px)' },
       },
       animation: {
         'spin-slow': 'spin 60s linear infinite',
         'drop-down' : 'dropDown 0.7s ease 0s 1 normal forwards',
         'fadeIn': "fadeIn 2s ease-in forwards"
+      },      
+      boxShadow: {
+        'monShadow': '1px 0px 20px 20px rgba(0, 0, 0, 0.3)',
       }
     },
   },
