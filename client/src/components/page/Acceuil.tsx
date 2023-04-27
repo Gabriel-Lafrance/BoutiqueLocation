@@ -9,7 +9,7 @@ const Acceuil = () => {
 
     const nbBackground = BackgroundImg.length;
 
-    const [index, setIndex] = React.useState(0);
+    const [index, setIndex] = React.useState(RandomInt(RandomInt(0,nbBackground),nbBackground));
 
     React.useEffect(() =>{
         const interval = setInterval(() => {

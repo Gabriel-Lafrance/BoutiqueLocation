@@ -18,20 +18,14 @@
     @apply text-sm md:text-base lg:text-lg  xl:text-xl;
   }
   .BoutonMenu {
-    @apply bg-stone-200 text-neutral-800 cursor-pointer rounded-xl px-4 py-2 m-3 mt-1  drop-shadow-sm shadow-inner shadow-neutral-500 transition hover:scale-105;
+    @apply bg-stone-200 text-neutral-800 cursor-pointer rounded-xl px-4 py-2 m-3 mt-1  drop-shadow-sm shadow-inner shadow-neutral-500 transition hover:scale-105 hover:shadow-none;
   }
   .BoutonMenuBurger {
     @apply BoutonMenu w-64 py-2 self-center m-auto;
   }
 }
 ::-webkit-scrollbar {
-  width: 13px;
-  height: 13px;
-}
-
-::-webkit-scrollbar-button {
-  width: 0px;
-  height: 0px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -42,6 +36,7 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #262626;
+  scale: 105%;
 }
 
 ::-webkit-scrollbar-thumb:active {
@@ -50,8 +45,6 @@
 
 ::-webkit-scrollbar-track {
   background: #ffffff;
-  border: 0px none #ffffff;
-  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-track:hover {

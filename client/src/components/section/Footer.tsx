@@ -8,8 +8,7 @@ const Footer = () => {
 
     const nbBackground = BackgroundImg2.length;
 
-    const [index, setIndex] = React.useState(0);
-
+    const [index, setIndex] = React.useState(RandomInt(RandomInt(0,nbBackground),nbBackground));
     React.useEffect(() =>{
         const interval = setInterval(() => {
             setIndex(RandomInt(RandomInt(0,nbBackground),nbBackground));

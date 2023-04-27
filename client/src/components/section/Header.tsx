@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HashLink as Link} from "react-router-hash-link"
+import { Link } from "react-router-dom"
 import logo from "../../assets/logo.png"
 
 const Header = () => {
@@ -49,11 +49,11 @@ function Switch() {   {/* Switch On/Off pour l'ouverture/fermeture du menu Burge
             </a>
             <div className={largeurEcran > breakpoint ? "mt-5 ml-4" : "hidden w-0 h-0"}>
                 <div className="GrosseurTexteNormal flex flex-row justify-around align-middle items-center mr-4">
-                    <Link smooth scroll={el => scrollOffset(el, 192)} to='#' className="BoutonMenu">Acceuil</Link>
-                    <Link smooth scroll={el => scrollOffset(el, 192)} to='#' className="BoutonMenu">Inventaire</Link>
-                    <Link smooth scroll={el => scrollOffset(el, 192)} to='#' className="BoutonMenu">Location</Link>
-                    <Link smooth scroll={el => scrollOffset(el, 128)} to='#' className="BoutonMenu">Services</Link>
-                    <Link smooth scroll={el => scrollOffset(el, 192)} to='#' className="BoutonMenu">Contact</Link>
+                    <Link  to='/Acceuil' className="BoutonMenu">Acceuil</Link>
+                    <Link  to='/Inventaire' className="BoutonMenu">Inventaire</Link>
+                    <Link  to='/Location' className="BoutonMenu">Location</Link>
+                    <Link  to='/Services' className="BoutonMenu">Services</Link>
+                    <Link  to='/Contact' className="BoutonMenu">Contact</Link>
                 </div>
             </div >
             <div className={largeurEcran <= breakpoint ? " mr-6 mb-[1.6rem]" : " hidden w-0 h-0"}>
@@ -66,11 +66,11 @@ function Switch() {   {/* Switch On/Off pour l'ouverture/fermeture du menu Burge
         </div>
         <div className={estActif && largeurEcran <= breakpoint ? "animate-drop-down w-full h-screen z-10": "hidden"}>
             <div className="w-full h-screen GrosseurTitre flex flex-col justify-around align-middle">
-                    <Link smooth scroll={el => scrollOffset(el, 192)} to='#' className="BoutonMenuBurger">Acceuil</Link>
-                    <Link smooth scroll={el => scrollOffset(el, 192)} to='#' className="BoutonMenuBurger">Inventaire</Link>
-                    <Link smooth scroll={el => scrollOffset(el, 192)} to='#' className="BoutonMenuBurger">Location</Link>
-                    <Link smooth scroll={el => scrollOffset(el, 128)} to='#' className="BoutonMenuBurger">Services</Link>
-                    <Link smooth scroll={el => scrollOffset(el, 192)} to='#' className="BoutonMenuBurger mb-48">Contact</Link>
+                    <Link  to='/Acceuil' className="BoutonMenuBurger">Acceuil</Link>
+                    <Link  to='/Inventaire' className="BoutonMenuBurger">Inventaire</Link>
+                    <Link  to='/Location' className="BoutonMenuBurger">Location</Link>
+                    <Link  to='/Services' className="BoutonMenuBurger">Services</Link>
+                    <Link  to='/Contact' className="BoutonMenuBurger mb-48">Contact</Link>
             </div>
         </div>
     </header>
