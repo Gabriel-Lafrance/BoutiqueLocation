@@ -1,15 +1,40 @@
 import { Menu } from '@headlessui/react'
+import { useDispatch } from "react-redux"
+import { updateFiltreAnnee, updateFiltreMarque } from 'src/store';
+import { filtreAnnee, filtreMarque} from "src/constans/filtre";
 
-export const DropdownBoutton = ( option : string) => {
+interface DropdownBouttonProps  {
+  option : string
+}
+
+export const DropdownBoutton = ( {option} : DropdownBouttonProps) => {
     
+    const dispatch = useDispatch();
+
+    function faitPartieDeLaListe(argListe : string[], argOption : string) : boolean {
+      let faitPartie : boolean = false;
+      argListe.forEach(element => {
+        console
+        if (element === argOption){
+          faitPartie = true;
+        }
+      });
+      return faitPartie;
+    }
+
     return (
         <Menu.Item>
         {({ active }) => (
-          <a href="#" type="submit" className={active ? 
-          'bg-gray-100 text-gray-900 block w-full px-4 py-2 text-left text-sm' : 
-          'text-gray-700 block w-full px-4 py-2 text-left text-sm'}>
+          <button onClick={() => {
+            if (faitPartieDeLaListe(filtreAnnee.options,option)) {
+              dispatch(updateFiltreAnnee(option));
+            } 
+            if (faitPartieDeLaListe(filtreMarque.options,option)) {
+              dispatch(updateFiltreMarque(option));
+            }}} 
+            className={" text-center text-2xl transition hover:scale-105 w-full block my-2"}>
             {option}
-          </a>
+          </button>
         )}
       </Menu.Item>
     );

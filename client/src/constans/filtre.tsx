@@ -1,13 +1,13 @@
-const filtre = [
+export const filtreAnnee = 
     {
         titre : "Année",
-        option : ["<= 2015","2016","2017","2018","2019","2020","2021","2022","2023"]
-    },
-    {    
-        titre : "Marque",
-        option : ["Audi","Aston Martin","BMW","Bentley","Mercedes","Ferrari","Lamborghini","Roll-Royce","Porsches"]
+        options : ["2015 et avant","2016","2017","2018","2019","2020","2021","2022","2023 et après"]
     }
-]
 
 
-export {filtre};
+export const filtreMarque = 
+    {
+        titre : "Marque",
+        options : ["Audi","Aston Martin","BMW","Bentley","Mercedes","Ferrari","Lamborghini","Roll-Royce","Porsches"]
+    }
+

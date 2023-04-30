@@ -8,18 +8,24 @@ import Services from "src/components/page/Services";
 import Location from "src/components/page/Location";
 import Contact from "src/components/page/Contact";
 
+import { Provider } from "react-redux";
+import { store } from "../store"
+
 
 export function App() {
   return (
     <>
       <Header/>
-      <Routes>
-        <Route path="/Acceuil" element={<Acceuil/>}></Route>
-        <Route path="/Inventaire" element={<Inventaire/>}></Route>
-        <Route path="/Location" element={<Location/>}></Route>
-        <Route path="/Services" element={<Services/>}></Route>
-        <Route path="/Contact" element={<Contact/>}></Route>
-      </Routes>
+      <Provider store={store}>
+        <Routes>
+          <Route path="/" element={<Acceuil/>}></Route>
+          <Route path="/Acceuil" element={<Acceuil/>}></Route>
+          <Route path="/Inventaire" element={<Inventaire/>}></Route>
+          <Route path="/Location" element={<Location/>}></Route>
+          <Route path="/Services" element={<Services/>}></Route>
+          <Route path="/Contact" element={<Contact/>}></Route>
+        </Routes>
+      </Provider>
       <Footer/>
     </>
   );
