@@ -9,7 +9,13 @@ app.listen(8080, ()=>{
 })
 
 app.get("/get/voitures", async (req,res) => {
-    const voitures = await getVoitures();
-   res.send(voitures);
+    const resultat = await getVoitures();
+   res.send(resultat);
+})
+
+app.get("/get/voitures/:id", async (req,res) => {
+    const id = req.params.id;
+    const resultat = await getVoitureParID(id);
+    res.send(resultat);
 })
 

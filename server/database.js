@@ -18,6 +18,6 @@ export async function getVoitures(){
 }
 
 export async function getVoitureParID(id){
-    const result = await pool.query("SELECT * FROM table_voitures WHERE id = ?", [id]);
+    const result = await pool.query("SELECT * FROM table_voitures WHERE id = ?;", [id]);
     return result[0]; // [0] pour retourner le premier array. QOL
 }
