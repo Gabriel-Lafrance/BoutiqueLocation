@@ -3,26 +3,26 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const filtreAnneeSlice = createSlice({
     name : "filtreAnnee",
-    initialState: {value: ""},
+    initialState: {value: "Tout"},
     reducers: {
         updateFiltreAnnee : (state,action) => {
             state.value = action.payload;
         },
         clearFiltreAnnee : (state) =>{
-            state.value = "";
+            state.value = "Tout";
         }
     }
 })
 
 const filtreMarqueSlice = createSlice({
     name : "filtreMarque",
-    initialState: {value: ""},
+    initialState: {value: "Tout"},
     reducers: {
         updateFiltreMarque : (state,action) => {
             state.value = action.payload;
         },
         clearFiltreMarque : (state) =>{
-            state.value = "";
+            state.value = "Tout";
         }
     }
 })

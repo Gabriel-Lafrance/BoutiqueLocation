@@ -15,7 +15,6 @@ function Switch() {   {/* Switch On/Off pour l'ouverture/fermeture du menu Burge
     const [largeurEcran, setLargeurEcran] = React.useState(window.innerWidth); {/* Gère la resize pour détecter quand mettre le menu bruger */}
 
     React.useEffect(() => {
-        console.log(largeurEcran);
         const handleResize = () => {
             if (estActif){
                 Switch();

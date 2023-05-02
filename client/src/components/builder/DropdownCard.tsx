@@ -9,9 +9,10 @@ interface DropdownProps {
 
 export const Dropdown = ( {titre, options} : DropdownProps) => {
   return (
-    <Menu as="div" className="relative inline-block w-auto text-xl mx-[1vw]">
+    <Menu as="div" className="relative inline-block w-auto text-xl md:mx-2">
       <div>
-        <Menu.Button className="rounded-xl bg-neutral-800  w-full md:w-auto md:px-16 py-2  font-semibold text-stone-200  shadow-2xl shadow-neutral-900 drop-shadow-xl hover:scale-105  transition">
+        <Menu.Button className="rounded-xl bg-neutral-800  w-full md:w-auto md:px-8 py-2  
+                                font-semibold text-stone-200  shadow-2xl shadow-neutral-900 drop-shadow-xl hover:scale-105  transition">
           {titre}
         </Menu.Button>
       </div>
@@ -24,12 +25,10 @@ export const Dropdown = ( {titre, options} : DropdownProps) => {
       leave="transition ease-in duration-200" 
       leaveFrom="transform opacity-100 scale-100" 
       leaveTo="transform opacity-0 scale-95">
-        <Menu.Items className=" p-1 absolute right-0 z-10 mt-2 w-full origin-top rounded-xl text-stone-200 shadow-2xl  bg-neutral-800 shadow-neutral-900 drop-shadow-xl">
-          <div className="p-2">
-                {options.map((option : string) => (
-                    <DropdownBoutton option={option}/>
+        <Menu.Items className="p-2 absolute right-0 z-10 mt-2 w-full origin-top rounded-xl text-stone-200 shadow-2xl  bg-neutral-800 shadow-neutral-900 drop-shadow-xl">
+                {options.map((option : string, index : number) => (
+                    <DropdownBoutton key={index} option={option}/>
                 ))}
-          </div>
         </Menu.Items>
       </Transition>
     </Menu>
