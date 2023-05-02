@@ -3,11 +3,12 @@ import { useDispatch } from "react-redux"
 import { updateFiltreAnnee, updateFiltreMarque } from 'src/store';
 import { filtreAnnee, filtreMarque} from "src/constans/filtre";
 
-interface DropdownBouttonProps  {
+type DropdownBouttonProps = {
   option : string
+  handleClick : () => Promise<void>
 }
 
-export const DropdownBoutton = ( {option} : DropdownBouttonProps) => {
+export const DropdownBoutton = ( {option , handleClick} : DropdownBouttonProps) => {
     
     const dispatch = useDispatch();
 
@@ -31,7 +32,9 @@ export const DropdownBoutton = ( {option} : DropdownBouttonProps) => {
             } 
             if (faitPartieDeLaListe(filtreMarque.options,option)) {
               dispatch(updateFiltreMarque(option));
-            }}} 
+            }
+            handleClick();
+            }} 
             className={" text-center text-2xl transition hover:scale-105 w-full block my-2"}>
             {option}
           </button>
