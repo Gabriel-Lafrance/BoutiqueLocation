@@ -1,6 +1,6 @@
 import express from "express";
 
-import { getVoitureParFiltre, getVoitureParID, getVoitures } from "./database.js";
+import { getVoitureParID, getVoitures } from "./database.js";
 
 const app = express();
 
@@ -17,13 +17,6 @@ app.get("/api/get/voitures", async (req,res) => {
 app.get("/api/get/voitures/:id", async (req,res) => {
     const id = req.params.id;
     const resultat = await getVoitureParID(id);
-    res.json(resultat);
-})
-
-app.get("/api/get/voitures/filtre/:annee/:marque", async (req,res) => {
-    const annee = req.params.annee.toString();
-    const marque = req.params.marque;
-    const resultat = await getVoitureParFiltre(annee,marque);
     res.json(resultat);
 })
 

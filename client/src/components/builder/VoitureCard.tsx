@@ -11,7 +11,7 @@ type VoitureProps = {
     acceleration : number,
 }
 
-const VoitureCard = (props : VoitureProps) => {
+export const VoitureCard = (props : VoitureProps) => {
     
     return (
         <main className=" bg-stone-200">
@@ -29,5 +29,3 @@ const VoitureCard = (props : VoitureProps) => {
 
     );
 }
-
-export default VoitureCard;

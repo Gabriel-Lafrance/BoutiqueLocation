@@ -1,7 +1,7 @@
-import Erreur from "../section/Erreur";
+import { Erreur } from "../section/Erreur";
 
 
-const Services = () => {
+export const Services = () => {
     
     return (
         <main className=" bg-stone-200">
@@ -10,5 +10,3 @@ const Services = () => {
 
     );
 }
-
-export default Services;

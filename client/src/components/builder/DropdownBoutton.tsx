@@ -1,14 +1,13 @@
 import { Menu } from '@headlessui/react'
 import { useDispatch } from "react-redux"
 import { updateFiltreAnnee, updateFiltreMarque } from 'src/store';
-import { filtreAnnee, filtreMarque} from "src/constans/filtre";
+import { listeFiltreAnnee, listeFiltreMarque} from "src/constans/filtre";
 
 type DropdownBouttonProps = {
-  option : string
-  handleClick : () => Promise<void>
+  option : string;
 }
 
-export const DropdownBoutton = ( {option , handleClick} : DropdownBouttonProps) => {
+export const DropdownBoutton = ( props : DropdownBouttonProps) => {
     
     const dispatch = useDispatch();
 
@@ -27,16 +26,15 @@ export const DropdownBoutton = ( {option , handleClick} : DropdownBouttonProps) 
         <Menu.Item>
         {({ active }) => (
           <button onClick={() => {
-            if (faitPartieDeLaListe(filtreAnnee.options,option)) {
-              dispatch(updateFiltreAnnee(option));
+            if (faitPartieDeLaListe(listeFiltreAnnee.options,props.option)) {
+              dispatch(updateFiltreAnnee(props.option));
             } 
-            if (faitPartieDeLaListe(filtreMarque.options,option)) {
-              dispatch(updateFiltreMarque(option));
+            if (faitPartieDeLaListe(listeFiltreMarque.options,props.option)) {
+              dispatch(updateFiltreMarque(props.option));
             }
-            handleClick();
             }} 
             className={" text-center text-2xl transition hover:scale-105 w-full block my-2"}>
-            {option}
+            {props.option}
           </button>
         )}
       </Menu.Item>

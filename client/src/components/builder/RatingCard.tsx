@@ -1,11 +1,6 @@
 import { TbStarFilled, TbStarHalfFilled } from "react-icons/tb";
 
-type Props = {
-  rating: number
-}
-
-
-export const Rating = ({rating }: Props) => {
+export const Rating = (rating : number) => {
     switch(rating) { 
         case 5 : { 
             return (

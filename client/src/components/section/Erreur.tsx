@@ -2,7 +2,7 @@ type ErreurProps = {
     code : string
   }
 
-const Erreur = (props : ErreurProps) => {
+export const Erreur = (props : ErreurProps) => {
     
     return (
         <main className="w-full h-96 flex flex-col justify-around">
@@ -21,5 +21,3 @@ const Erreur = (props : ErreurProps) => {
         </main>
     );
 }
-
-export default Erreur;

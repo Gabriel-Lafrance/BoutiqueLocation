@@ -1,4 +1,4 @@
-const Loading = () => {
+export const Loading = () => {
     
     return (
         <main className="w-full h-96 flex flex-col justify-around">
@@ -12,5 +12,3 @@ const Loading = () => {
         </main>
     );
 }
-
-export default Loading;

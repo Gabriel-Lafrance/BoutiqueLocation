@@ -1,11 +1,11 @@
 import { BackgroundImg }from "../../constans/background";
-import  Stats  from "../section/Acceuil/Stats"
-import Promotion from "../section/Acceuil/Promotion";
-import Recommendation from "../section/Acceuil/Recommendation";
+import  { Stats }  from "../section/Acceuil/Stats"
+import { Promotion } from "../section/Acceuil/Promotion";
+import { Recommendation } from "../section/Acceuil/Recommendation";
 import { Parallax } from "react-parallax";
 import React from "react";
 
-const Acceuil = () => {
+export const Acceuil = () => {
 
     const nbBackground = BackgroundImg.length;
 
@@ -36,5 +36,3 @@ const Acceuil = () => {
 
     );
 }
-
-export default Acceuil;

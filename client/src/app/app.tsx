@@ -1,10 +1,10 @@
-import Header from "src/components/section/Header";
-import Footer from "src/components/section/Footer";
+import { Header } from "src/components/section/Header";
+import { Footer } from "src/components/section/Footer";
 
 import { Routes, Route } from 'react-router-dom';
-import Acceuil from "src/components/page/Acceuil";
-import Inventaire from "src/components/page/Inventaire";
-import Services from "src/components/page/Services";
+import { Acceuil } from "src/components/page/Acceuil";
+import { Inventaire } from "src/components/page/Inventaire";
+import { Services } from "src/components/page/Services";
 import Location from "src/components/page/Location";
 import Contact from "src/components/page/Contact";
 

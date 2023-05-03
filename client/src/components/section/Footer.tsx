@@ -4,7 +4,7 @@ import { BackgroundImg2 } from "src/constans/background";
 import logo from "../../assets/logo.png"
 
 
-const Footer = () => {
+export const Footer = () => {
 
     const nbBackground = BackgroundImg2.length;
 
@@ -38,5 +38,3 @@ const Footer = () => {
 
     );
 }
-
-export default Footer;

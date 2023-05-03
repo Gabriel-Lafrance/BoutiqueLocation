@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from "react-router-dom"
 import logo from "../../assets/logo.png"
 
-const Header = () => {
+export const Header = () => {
 
     var breakpoint : number = 940; {/* Width en pixel que le menu passe de normal à burger*/}
 
@@ -75,5 +75,3 @@ function Switch() {   {/* Switch On/Off pour l'ouverture/fermeture du menu Burge
     </header>
     );
 }
-
-export default Header;

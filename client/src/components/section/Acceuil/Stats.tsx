@@ -7,7 +7,7 @@ type StatProps = {
     emoji: string
 }
 
-const Stats = () => {
+export const Stats = () => {
     return (
             <section className="py-16 h-auto w-[90%] block m-auto bg-stone-200">
                 <h2 className="mt-4 mb-6 text-center text-neutral-800 GrosseurTitre font-semibold">Super-Loc en statistique : </h2>
@@ -20,5 +20,3 @@ const Stats = () => {
             </section>
     );
 }
-
-export default Stats;

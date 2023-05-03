@@ -7,7 +7,7 @@ type AvisProps = {
     rating : number
 }
 
-const Recommendation = () => {
+export const Recommendation = () => {
     
     return (
         <div className="pt-16 bg-neutral-800 h-fit shadow-monShadow shadow-neutral-900 drop-shadow-xl">
@@ -15,8 +15,8 @@ const Recommendation = () => {
                     <div className="mt-2 mb-2 w-[90%] h-1  rounded-full  bg-stone-200 m-auto"/>
                     <div className=" w-[90%] block mx-auto mt-16">
                         <div className=" w-full m-auto inline-grid  place-items-center  grid-cols-1 grid-rows-3 md:grid-rows-1 md:grid-cols-3 ">
-                            {lesAvis.map((avis : AvisProps) => (
-                                <AvisCard nom={avis.nom} commentaire={avis.commentaire} rating={avis.rating}/>
+                            {lesAvis.map((props : AvisProps) => (
+                                <AvisCard {...props}/>
                             ))}
                         </div> 
                     </div>
@@ -24,5 +24,3 @@ const Recommendation = () => {
 
     );
 }
-
-export default Recommendation;
