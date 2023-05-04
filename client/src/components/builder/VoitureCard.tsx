@@ -14,18 +14,11 @@ type VoitureProps = {
 export const VoitureCard = (props : VoitureProps) => {
     
     return (
-        <main className=" bg-stone-200">
-            {props.annee}/
-            {props.couleur}/
-            {props.disponible}/
-            {props.id}/
-            {props.marque}/
-            {props.nom}/
-            {props.acceleration}/
-            {props.prixJour}/
-            {props.prixWeekend}/
-            {props.puissance}/
-        </main>
+        <div className="m-auto">
+            <div className="text-stone-200 bg-neutral-800 w-64 h-64 mb-4 rounded-xl p-4 ">
+                <span className="">{props.marque + " " + props.nom + " " + props.annee + " " + props.couleur}</span>
+             </div>
+        </div>
 
     );
 }

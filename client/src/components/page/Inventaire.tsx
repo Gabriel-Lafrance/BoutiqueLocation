@@ -28,17 +28,16 @@ export const Inventaire = () => {
     const filtreMarque = useSelector((state : any) => state.filtreMarque.value);
     const resultat = useSelector((state : any) => state.nbResultat.value);
 
-    const dispatch = useDispatch();
-
     const [lesVoitures,setVoitures] = React.useState<VoitureProps[] | undefined>();
     const [error,setError] = React.useState<boolean>(false);
     const [loading,setLoading] = React.useState<boolean>(true);
+
+    const dispatch = useDispatch();
 
     async function fetchVoitures(){
         try {
             const result = await axios.get('api/get/voitures');
             setLoading(false);
-            setLoading(result.data.count);
             setVoitures(result.data);
         } catch(error){
             console.log(error);
@@ -48,11 +47,11 @@ export const Inventaire = () => {
     }
 
     React.useEffect(() => { 
-            fetchVoitures();
+        fetchVoitures();
       },[]);
 
     return (
-        <main className=" bg-stone-200  h-[100rem]  flex flex-col text-neutral-800 " >
+        <main className=" bg-stone-200  h-fit  flex flex-col text-neutral-800 " >
             <div className="mt-32 mx-8">
                 <div className="block sm:flex sm:flex-row sm:justify-between mx-8">
                     <h1  className="font-bold GrosseurTitre ">Notre Inventaire : </h1>
@@ -62,7 +61,7 @@ export const Inventaire = () => {
                 <div className=" flex flex-col h-48 md:h-auto md:flex-row justify-around md:justify-end">
                     <Dropdown titre={listeFiltreAnnee.titre + " : " + filtreAnnee} options={listeFiltreAnnee.options} />
                     <Dropdown titre={listeFiltreMarque.titre + " : " + filtreMarque} options={listeFiltreMarque.options} />
-                    <div className="relative inline-block w-auto text-xl md:mx-2">
+                     <div className="relative inline-block w-auto text-xl md:mx-2">
                         <button onClick={() => {
                             dispatch(clearFiltreAnnee()); 
                             dispatch(clearFiltreMarque());
@@ -73,9 +72,11 @@ export const Inventaire = () => {
                         </button>
                     </div>
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 flex flex-col">
                     {loading && <Loading/>}
-                    {error ? <Erreur code="Impossible de rejoindre le serveur"/> : <InventaireContenu listeVoitures={lesVoitures}/>}
+                    {error ? 
+                    <Erreur code="Impossible de rejoindre le serveur"/> :
+                    <InventaireContenu  listeVoitures={lesVoitures}/>}
                 </div>
             </div>
         </main>
