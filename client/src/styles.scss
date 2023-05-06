@@ -4,6 +4,9 @@
 
 
 @layer components {
+    html {
+      @apply font-serif scroll-smooth
+    }
 
     .GrosseurTitreXL{
         @apply   text-3xl lg:text-4xl
@@ -32,8 +35,13 @@
     .BoutonMenuBurger{
         @apply BoutonMenu w-64 py-2 self-center m-auto
     }
+
+    .GridInventaire {
+      @apply grid gap-12 justify-around grid-cols-[repeat(auto-fill,_20rem)];
+    }
 }
 
+// À ne surtout pas faire : 
 ::-webkit-scrollbar {
     width: 4px;
   }
@@ -61,7 +69,3 @@
   ::-webkit-scrollbar-corner {
     background: transparent;
   }
-
-html {
-    @apply font-serif scroll-smooth
-}

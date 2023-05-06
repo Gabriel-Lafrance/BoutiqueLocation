@@ -1,3 +1,7 @@
+// A .env is required to run the backend.
+// Feel free to ask me for it.
+
+
 import express from "express";
 
 import { getVoitureParID, getVoitures } from "./database.js";

@@ -1,13 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { VoitureCard } from "src/components/builder/VoitureCard";
-import useDeepCompareEffect from 'use-deep-compare-effect'
 import { updateNbResultat } from "src/store";
+import { useFetch } from "src/hooks/useFetch";
+import { Erreur } from "../Erreur";
+import { Loading } from "../Loading";
 
-
-type listeVoitureProps = {
-    listeVoitures : VoitureProps[] | undefined;
-}
 
 type VoitureProps = {
     id : number,
@@ -22,43 +20,50 @@ type VoitureProps = {
     acceleration : number,
 }
 
-export const InventaireContenu = (props : listeVoitureProps) => {
+export const InventaireContenu = () => {
     
     const filtreAnnee = useSelector((state : any) => state.filtreAnnee.value);
     const filtreMarque = useSelector((state : any) => state.filtreMarque.value);
 
     const dispatch = useDispatch();
 
-    const [voituresFiltrer,setVoituresFiltrer] = React.useState<VoitureProps[] | undefined>(props.listeVoitures);
+    const {data, error, loading} = useFetch('api/get/voitures');
 
-    function filtrer(){ 
-        if (filtreAnnee === "Toutes" && filtreMarque === "Toutes"){
-            setVoituresFiltrer(props.listeVoitures);
-        }
-        if (filtreAnnee !== "Toutes" && filtreMarque === "Toutes"){
-            setVoituresFiltrer(props.listeVoitures?.filter( e => e.annee === filtreAnnee ));
-        }
-        if (filtreAnnee === "Toutes" && filtreMarque !== "Toutes"){
-            setVoituresFiltrer(props.listeVoitures?.filter( e => e.marque === filtreMarque ));
-        }
-        if (filtreAnnee !== "Toutes" && filtreMarque !== "Toutes"){
-            let tempVoituresFiltrer = props.listeVoitures?.filter( e => e.marque === filtreMarque );
-            setVoituresFiltrer(tempVoituresFiltrer?.filter( e => e.annee === filtreAnnee));
-        }
-        dispatch(updateNbResultat(voituresFiltrer?.length)); 
+    const [voituresFiltrer,setVoituresFiltrer] = React.useState<VoitureProps[] | undefined>();
+
+    function filtrer() { 
+        setVoituresFiltrer(() => {
+            let tempVoituresFiltrer;
+            if (filtreAnnee === "Toutes" && filtreMarque === "Toutes"){
+                tempVoituresFiltrer = data;
+            }
+            if (filtreAnnee !== "Toutes" && filtreMarque === "Toutes"){
+                tempVoituresFiltrer = data.filter( (e: VoitureProps) => e.annee === filtreAnnee );
+            }
+            if (filtreAnnee === "Toutes" && filtreMarque !== "Toutes"){
+                tempVoituresFiltrer = data.filter( (e: VoitureProps) => e.marque === filtreMarque );
+            }
+            if (filtreAnnee !== "Toutes" && filtreMarque !== "Toutes"){
+                let tempVoituresFiltrer2 = data.filter( (e: VoitureProps) => e.marque === filtreMarque );
+                tempVoituresFiltrer = tempVoituresFiltrer2?.filter( (e: VoitureProps) => e.annee === filtreAnnee);
+            }
+            dispatch(updateNbResultat(tempVoituresFiltrer?.length))
+            return tempVoituresFiltrer;
+    });
     };
 
-    useDeepCompareEffect(() =>{
-            filtrer();
-    },[filtrer])
+    React.useEffect(() => {
+        filtrer();
+    }, [filtreAnnee,filtreMarque,data]);
 
     return (
-    //<div className="grid  grid-flow-row-dense grid-cols-6 justify-center">
-    <div className="flex flex-row items-start flex-wrap">
-            {voituresFiltrer?.map((props : VoitureProps , index : number) => (
-                <VoitureCard key={index} {...props}/>
-            ))}
-        </div>
-
+            <div className=" GridInventaire">
+                    {loading && <Loading/>}
+                    {error ? 
+                    <Erreur code="Impossible de rejoindre le serveur"/> :
+                    voituresFiltrer?.map((props : VoitureProps , index : number) => (
+                    <VoitureCard key={index} {...props}/>
+                ))}
+            </div>
     );
 }
