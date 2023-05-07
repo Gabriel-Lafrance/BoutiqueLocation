@@ -10,7 +10,7 @@ import { Loading } from "../Loading";
 type VoitureProps = {
     id : number,
     couleur : string,
-    disponible : boolean,
+    disponible : number,
     prixJour: number,
     prixWeekend: number,
     nom: string,
@@ -24,6 +24,7 @@ export const InventaireContenu = () => {
     
     const filtreAnnee = useSelector((state : any) => state.filtreAnnee.value);
     const filtreMarque = useSelector((state : any) => state.filtreMarque.value);
+    const filtreDisponible = useSelector((state : any) => state.filtreDisponible.value);
 
     const dispatch = useDispatch();
 
@@ -31,33 +32,51 @@ export const InventaireContenu = () => {
 
     const [voituresFiltrer,setVoituresFiltrer] = React.useState<VoitureProps[] | undefined>();
 
+    function convertirDisponibleIntString( argInt : number ){
+        if (argInt === 0){
+            return "Indisponible";
+        }
+        if (argInt === 1){
+            return "Disponible";
+        }
+        return "Toutes";
+    }
+
+    function filtrerAnnee( argListe : VoitureProps[] ) : VoitureProps[] {
+        return argListe.filter( (e: VoitureProps) => e.annee === filtreAnnee );
+    }
+
+    function filtrerMarque( argListe : VoitureProps[] ) : VoitureProps[] {
+        return argListe.filter( (e: VoitureProps) => e.marque === filtreMarque );
+    }
+
+    function filtrerDisponible( argListe : VoitureProps[] ) : VoitureProps[] {
+        return argListe.filter( (e: VoitureProps) => convertirDisponibleIntString(e.disponible) === filtreDisponible );
+    }
+
     function filtrer() { 
         setVoituresFiltrer(() => {
-            let tempVoituresFiltrer;
-            if (filtreAnnee === "Toutes" && filtreMarque === "Toutes"){
-                tempVoituresFiltrer = data;
+            let lesVoituresFiltrer : VoitureProps[] = data;
+            if (filtreAnnee !== "Toutes"){
+                lesVoituresFiltrer = filtrerAnnee(lesVoituresFiltrer);
             }
-            if (filtreAnnee !== "Toutes" && filtreMarque === "Toutes"){
-                tempVoituresFiltrer = data.filter( (e: VoitureProps) => e.annee === filtreAnnee );
+            if (filtreMarque !== "Toutes"){
+                lesVoituresFiltrer = filtrerMarque(lesVoituresFiltrer);
             }
-            if (filtreAnnee === "Toutes" && filtreMarque !== "Toutes"){
-                tempVoituresFiltrer = data.filter( (e: VoitureProps) => e.marque === filtreMarque );
+            if (filtreDisponible !== "Toutes"){
+                lesVoituresFiltrer = filtrerDisponible(lesVoituresFiltrer);
             }
-            if (filtreAnnee !== "Toutes" && filtreMarque !== "Toutes"){
-                let tempVoituresFiltrer2 = data.filter( (e: VoitureProps) => e.marque === filtreMarque );
-                tempVoituresFiltrer = tempVoituresFiltrer2?.filter( (e: VoitureProps) => e.annee === filtreAnnee);
-            }
-            dispatch(updateNbResultat(tempVoituresFiltrer?.length))
-            return tempVoituresFiltrer;
-    });
+            dispatch(updateNbResultat(lesVoituresFiltrer?.length))
+            return lesVoituresFiltrer;
+        });
     };
 
     React.useEffect(() => {
         filtrer();
-    }, [filtreAnnee,filtreMarque,data]);
+    }, [filtreAnnee,filtreMarque,filtreDisponible,data]);
 
     return (
-            <div className=" GridInventaire">
+            <div className="GridInventaire">
                     {loading && <Loading/>}
                     {error ? 
                     <Erreur code="Impossible de rejoindre le serveur"/> :

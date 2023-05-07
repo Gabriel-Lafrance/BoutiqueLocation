@@ -7,7 +7,9 @@ type AvisProps = {
     rating : number
 }
 
-export const Recommendation = () => {
+// Temporary
+
+export const Nettoyage = () => {
     
     return (
         <div className="pt-16 bg-neutral-800 h-fit shadow-monShadow shadow-neutral-900 drop-shadow-xl">

@@ -1,7 +1,7 @@
 import { Menu } from '@headlessui/react'
 import { useDispatch } from "react-redux"
-import { updateFiltreAnnee, updateFiltreMarque } from 'src/store';
-import { listeFiltreAnnee, listeFiltreMarque} from "src/constans/filtre";
+import { updateFiltreAnnee, updateFiltreDisponible, updateFiltreMarque } from 'src/store';
+import { listeFiltreAnnee, listeFiltreDisponible, listeFiltreMarque} from "src/constans/filtre";
 
 type DropdownBouttonProps = {
   option : string;
@@ -31,6 +31,9 @@ export const DropdownBoutton = ( props : DropdownBouttonProps) => {
             } 
             if (faitPartieDeLaListe(listeFiltreMarque.options,props.option)) {
               dispatch(updateFiltreMarque(props.option));
+            }
+            if (faitPartieDeLaListe(listeFiltreDisponible.options,props.option)) {
+              dispatch(updateFiltreDisponible(props.option));
             }
             }} 
             className={" text-center text-2xl transition hover:scale-105 w-full block my-2"}>

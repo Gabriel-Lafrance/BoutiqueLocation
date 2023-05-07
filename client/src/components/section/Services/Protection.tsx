@@ -6,8 +6,9 @@ type PromoProps = {
     reduction : string,
 }
 
+// Temporary
 
-export const Promotion = () => {
+export const Protection = () => {
     
     return (
         <div className="pt-16 bg-stone-200 h-fit pb-16">

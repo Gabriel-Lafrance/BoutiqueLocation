@@ -27,6 +27,19 @@ const filtreMarqueSlice = createSlice({
     }
 })
 
+const filtreDisponibleSlice = createSlice({
+    name : "filtreDisponible",
+    initialState: {value: "Toutes"},       // Option : 0 = Indisponible , 1 = Disponible , 2 = Peu  importe
+    reducers: {
+        updateFiltreDisponible : (state,action) => {
+            state.value = action.payload;
+        },
+        clearFiltreDisponible : (state) =>{
+            state.value = "Toutes";
+        }
+    }
+})
+
 const nbResultatSlice = createSlice({
     name : "nbResultat",
     initialState: {value: 0},
@@ -42,12 +55,14 @@ const nbResultatSlice = createSlice({
 
 export const {updateFiltreAnnee, clearFiltreAnnee} = filtreAnneeSlice.actions;
 export const {updateFiltreMarque, clearFiltreMarque} = filtreMarqueSlice.actions;
+export const {updateFiltreDisponible, clearFiltreDisponible} = filtreDisponibleSlice.actions;
 export const {updateNbResultat, clearNbResultat} = nbResultatSlice.actions;
 
 export const store = configureStore({
     reducer: {
         filtreAnnee : filtreAnneeSlice.reducer,
         filtreMarque : filtreMarqueSlice.reducer,
+        filtreDisponible : filtreDisponibleSlice.reducer,
         nbResultat : nbResultatSlice.reducer,
     }
 });

@@ -11,3 +11,9 @@ export const listeFiltreMarque =
         options : ["Audi","Aston Martin","BMW","Bentley","Mercedes","Ferrari","Lamborghini","Roll-Royce","Porsche"]
     }
 
+export const listeFiltreDisponible = 
+    {
+        titre : "Disponibilité",
+        options : ["Disponible","Indisponible"]
+    }
+

@@ -24,12 +24,6 @@ export const Acceuil = () => {
     
     return (
         <main className=" bg-stone-200">
-            <Parallax bgImage={BackgroundImg[index].background} bgClassName="object-contain -top-[12rem]" strength={300}>
-                <div className=" flex flex-col text-white text-center w-full   h-[60vw] ">
-                        <span className=" text-[4vw] font-bold mt-[20%] drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)] ">Allez où vous le désirez, quand vous le désirez</span>
-                        <p className=" text-[2vw] font-bold ] drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]">Fier de vous servir depuis 1995</p>
-                </div>
-            </Parallax>
             <Promotion/>
             <Recommendation/>
             <Stats/>
