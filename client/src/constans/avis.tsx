@@ -2,7 +2,7 @@
 
 const Avis = [
     {
-        nom : "Greg Prédateur",
+        nom : "Greg Bassem",
         commentaire : "Je te le dis, sa pousse. J'ai arraché une porte pis y m'ont redonné la caution.",
         rating : 4.5
     },

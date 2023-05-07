@@ -1,48 +1,23 @@
-import { Fragment } from "react";
 import { Bapteme } from "../section/Services/Bapteme";
 import { Nettoyage } from "../section/Services/Nettoyage";
-import { Protection } from "../section/Services/Protection";
-import { Tab } from '@headlessui/react'
+import { Tuning } from "../section/Services/Tuning";
+import * as Tabs from '@radix-ui/react-tabs';
 
 
 export const Services = () => {
     
     return (
-        <main className=" bg-stone-200  h-fit  flex flex-col text-neutral-800 " >
-            <div className="flex flex-col">
-                <Tab.Group>
-                <div className="w-full h-1  rounded-full  bg-neutral-800 m-auto"/>
-                    <Tab.List className="flex flex-row justify-center w-full mx-auto  text-stone-200 py-4 ">
-                    <Tab as={Fragment}>
-                        {({ selected }) => (
-                            <button className={selected ? 'BoutonTabsActif' : 'BoutonTabsRepos'}>
-                            Bapthêmes
-                            </button>
-                        )}
-                        </Tab>
-                        <Tab as={Fragment}>
-                        {({ selected }) => (
-                            <button className={selected ? 'BoutonTabsActif' : 'BoutonTabsRepos'}>
-                            Nettoyages
-                            </button>
-                        )}
-                        </Tab>
-                        <Tab as={Fragment}>
-                        {({ selected }) => (
-                            <button className={selected ? 'BoutonTabsActif' : 'BoutonTabsRepos'}>
-                            Tunning
-                            </button>
-                        )}
-                        </Tab>
-                    </Tab.List>
-                    <div className="w-full h-1  rounded-full  bg-neutral-800 m-auto mb-4"/>
-                    <Tab.Panels>
-                        <Tab.Panel><Bapteme/></Tab.Panel>
-                        <Tab.Panel>Content 2</Tab.Panel>
-                        <Tab.Panel>Content 3</Tab.Panel>
-                    </Tab.Panels>
-                </Tab.Group>
-            </div>
+        <main className=" bg-stone-200  h-fit  w-full  flex flex-col text-neutral-800 " >
+        <Tabs.Root defaultValue="tab1" className="w-4/5 my-16  mx-auto bg-neutral-800 ShadowNoir rounded-xl">
+            <Tabs.List aria-label="tabs example" className="text-neutral-800  w-full my-16 flex flex-col sm:flex-row justify-center">
+                <Tabs.Trigger value="tab1" className="GrosseurTitre mx-auto BoutonTabs">Baptêmes</Tabs.Trigger>
+                <Tabs.Trigger value="tab2" className="GrosseurTitre mx-auto BoutonTabs">Nettoyages</Tabs.Trigger>
+                <Tabs.Trigger value="tab3" className="GrosseurTitre mx-auto BoutonTabs">Tunings</Tabs.Trigger>
+            </Tabs.List>
+            <Tabs.Content value="tab1"><Bapteme/></Tabs.Content>
+            <Tabs.Content value="tab2"><Nettoyage/></Tabs.Content>
+            <Tabs.Content value="tab3"><Tuning/></Tabs.Content>
+        </Tabs.Root>
         </main>
     );
 }

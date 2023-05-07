@@ -29,7 +29,7 @@
     }
 
     .BoutonMenu{
-        @apply bg-stone-200 text-neutral-800 cursor-pointer rounded-xl px-4 py-2 m-3 mt-1  drop-shadow-sm shadow-inner shadow-neutral-500 transition hover:scale-105 hover:shadow-none
+        @apply bg-stone-200 text-neutral-800 cursor-pointer rounded-xl px-4 py-2 m-3 mt-1  drop-shadow-sm shadow-inner shadow-neutral-500 HoverScale105 hover:shadow-none
     }
 
     .BoutonMenuBurger{
@@ -48,14 +48,9 @@
       @apply hover:scale-105 transition 
     }
 
-    .BoutonTabs{
-      @apply py-2 px-8 mx-2 md:mx-4 w-auto rounded-xl GrosseurSousTitre HoverScale105 bg-neutral-800 text-white ShadowNoir
-    }
-    .BoutonTabsActif {
-      @apply BoutonTabs outline-none scale-110
-    }
-    .BoutonTabsRepos {
-      @apply BoutonTabs scale-100
+    .BoutonTabs {
+      @apply bg-white p-4 rounded-xl shadow-inner shadow-neutral-500 HoverScale105 hover:shadow-none
+      data-[state=active]:scale-105 data-[state=active]:shadow-none w-4/5 sm:w-auto my-4 sm:my-0
     }
 }
 

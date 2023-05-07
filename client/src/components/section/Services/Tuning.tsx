@@ -1,11 +1,10 @@
 
-// Temporary
 
-export const Nettoyage = () => {
+export const Tuning = () => {
     
     return (
         <div className="pt-16 bg-stone-200 h-fit pb-16 rounded-b-xl">
-            <h2 className="mt-4 mb-6 text-center text-neutral-800 GrosseurTitre font-semibold">Nos nettoyages :  </h2>
+            <h2 className="mt-4 mb-6 text-center text-neutral-800 GrosseurTitre font-semibold">Nos tunings :  </h2>
             <div className="my-4 w-[90%] h-1  rounded-full  bg-neutral-800 m-auto"/>
             <div className="w-4/5 mx-auto bg-neutral-800 h-fit rounded-xl p-4 GrosseurTexteNormal ShadowNoir text-slate-200">
                 <p>
@@ -19,6 +18,5 @@ export const Nettoyage = () => {
                 </p>
             </div>
         </div>
-
     );
 }

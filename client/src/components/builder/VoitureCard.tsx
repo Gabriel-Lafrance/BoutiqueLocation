@@ -20,7 +20,7 @@ type VoitureProps = {
 export const VoitureCard = (props : VoitureProps) => {
     
     return (
-            <div className="text-stone-200 bg-neutral-800  w-80 h-96  rounded-xl p-4 mx-auto flex flex-col justify-around text-center text-2xl shadow-2xl shadow-neutral-900 drop-shadow-xl">
+            <div className="text-stone-200 bg-neutral-800  w-80 h-96  rounded-xl p-4 mx-auto flex flex-col justify-around text-center text-2xl ShadowNoir HoverScale105">
                 <span className="">{props.marque + " " + props.nom}</span>
                 <span>{"Année : " + props.annee}</span>
                 <span>{"Couleur : " + props.couleur}</span>
