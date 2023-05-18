@@ -12,7 +12,6 @@ Objectives :
 
 
 TODO : 
- * Swtich to React Aria 
  * Finish Services page
  * Add Contact page
 
